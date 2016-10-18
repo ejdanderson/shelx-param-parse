@@ -15,7 +15,7 @@ else :
 
 # x y z sof U11 U22 U33 U23 U13 U12 Ueq
 
-def calcSFACString(val, error) :
+def spp_calc_param_string(val, error) :
     val = float(val)
     m = re.search('[^0\.]', error)
     if m != None :
@@ -29,7 +29,7 @@ def calcSFACString(val, error) :
     return '%0.1f ' % val
 
 
-def main():
+def spp_main():
     regexpat = '[a-zA-Z0-9\.]+'
     lines = i.readlines()
 
@@ -54,7 +54,7 @@ def main():
                     o.write('SOF,' + calcSFACString(m1[4], m2[4]) + '\n')
                     o.write('\n');
 
-                    calcSFACString(m1[4], m2[4])
+                    spp_calc_param_string(m1[4], m2[4])
                     # Skip next line, already processed
                     sc_index += 1
-main()
+spp_main()
