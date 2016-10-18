@@ -22,8 +22,13 @@ def spp_calc_param_string(val, error) :
         error_pos = m.start()
         error = float(error)
         # Native round doesnt work properly
-        error = numpy.round(error, error_pos-1)
-        m = re.search('[^0\.]', str(error))
+        rounded_error = numpy.round(error, error_pos-1)
+        m = re.search('[^0\.]', str(rounded_error))
+        # Make sure to keep two digits if the first is a 1
+        if m.group() == '1' :
+            error_pos += 1
+            # Add trailing zero as converting to float removes all
+            m = re.search('([^0\.])([0-9])', str(error) + "0")
         str_format = '%0.' + str(error_pos-1) + 'f(%s)'
         return str_format % (numpy.round(val, error_pos-1), m.group())
     return '%0.1f ' % val
