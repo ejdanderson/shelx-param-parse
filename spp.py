@@ -48,10 +48,10 @@ def spp_main():
                     m2 = re.findall(regexpat, nextline)
 
                     o.write(m1[0] + ','  + '\n')
-                    o.write('x,' + calcSFACString(m1[1], m2[1]) + '\n')
-                    o.write('y,' + calcSFACString(m1[2], m2[2]) + '\n')
-                    o.write('z,' + calcSFACString(m1[3], m2[3]) + '\n')
-                    o.write('SOF,' + calcSFACString(m1[4], m2[4]) + '\n')
+                    o.write('x,' + spp_calc_param_string(m1[1], m2[1]) + '\n')
+                    o.write('y,' + spp_calc_param_string(m1[2], m2[2]) + '\n')
+                    o.write('z,' + spp_calc_param_string(m1[3], m2[3]) + '\n')
+                    o.write('SOF,' + spp_calc_param_string(m1[4], m2[4]) + '\n')
                     o.write('\n');
 
                     spp_calc_param_string(m1[4], m2[4])
