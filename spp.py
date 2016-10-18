@@ -6,12 +6,12 @@ import sys
 if len(sys.argv) > 1 :
     i = open(sys.argv[1])
 else :
-    i = open('shelxl.lst')
+    i = open('data/shelxl.lst')
 
 if len(sys.argv) > 2 :
     o = open(sys.argv[2], 'w')
 else :
-    o = open('shelxl.csv', 'w')
+    o = open('data/shelxl.csv', 'w')
 
 # x y z sof U11 U22 U33 U23 U13 U12 Ueq
 
